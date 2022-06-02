@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace ABD_Fruteria.Views
 {
-    public class Enumerado
-    {
-        public enum Operacion { ver, venta, comision, grupo, producto, vendedores, editar }
-    }
+   public enum Operacion {ver, venta, comision, grupo, producto, vendedores, editar } 
 }

@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
         mc:Ignorable="d"
-        Title="EliminarVentaView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="EliminarVentaView" Height="150" Width="800">
+    <DockPanel Background="Aqua">
+        <StackPanel>
+
+            <TextBlock FontSize="16">¿Seguro que quiere eliminar la venta del vendedor
+                <Run Text="{Binding Venta.CodVendedorNavigation.NombreVendedor}"/>
+                con el producto <Run Text="{Binding Venta.CodProductoNavigation.NomProducto}"/>?
+            </TextBlock>
+
+            <WrapPanel Margin="10">
+                <Button Content="Si"  Background="#f460a5" Command="{Binding EliminarCommand}"/>
+                <Button Content="No" Background="#f460a5" Command="{Binding CancelarEliminarCommand}"/>
+
+            </WrapPanel>
+            <Label Content="{Binding Error}"/>
+
+        </StackPanel>
+    </DockPanel>
 </Window>

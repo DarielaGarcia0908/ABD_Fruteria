@@ -14,7 +14,7 @@ namespace ABD_Fruteria.Repositories
 
         public IEnumerable<Ventas> GetAll()
         {
-            return context.Ventas.OrderBy(x => x.Idventa).Where(x => x.Fecha == DateTime.Now.Date).Include
+            return context.Ventas.OrderBy(x => x.Idventa).Include
             (x => x.CodProductoNavigation).Include(x => x.CodVendedorNavigation).OrderBy(x => x.Idventa);
             //return context.Ventas.OrderBy(x => x.Fecha);            
         }

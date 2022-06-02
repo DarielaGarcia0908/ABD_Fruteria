@@ -10,11 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using static ABD_Fruteria.Views.Enumerado;
+
 
 namespace ABD_Fruteria.ViewModel
 {
-    public class VentasViewModel:INotifyPropertyChanged
+    public class VentasViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -23,7 +23,7 @@ namespace ABD_Fruteria.ViewModel
         public ICommand VerEditarCommand { get; set; }
         public ICommand EditarCommand { get; set; }
         public ICommand VerComisionCommand { get; set; }
-        public ICommand RegersarCommand { get; set; }
+        public ICommand RegresarCommand { get; set; }
         public ICommand VerEliminarCommand { get; set; }
         public ICommand EliminarCommand { get; set; }
         public ICommand CancelarEliminarCommand { get; set; }
@@ -52,7 +52,7 @@ namespace ABD_Fruteria.ViewModel
         public ObservableCollection<Grupos> Grupos
         {
             get { return grupo; }
-            set { grupo = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Grupos))); }
+            set { grupo = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Grupos")); }
         }
 
         private ObservableCollection<Productos> producto;
@@ -60,7 +60,7 @@ namespace ABD_Fruteria.ViewModel
         public ObservableCollection<Productos> Productos
         {
             get { return producto; }
-            set { producto = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Productos))); }
+            set { producto = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Productos")); }
         }
 
         private ObservableCollection<Vendedores> vendedores;
@@ -68,7 +68,7 @@ namespace ABD_Fruteria.ViewModel
         public ObservableCollection<Vendedores> Vendedores
         {
             get { return vendedores; }
-            set { vendedores = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Vendedores))); }
+            set { vendedores = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vendedores")); }
         }
 
 
@@ -77,7 +77,11 @@ namespace ABD_Fruteria.ViewModel
         public Operacion Operacion
         {
             get { return operacion; }
-            set { operacion = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Operacion))); }
+            set
+            {
+                operacion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Operacion"));
+            }
         }
 
         private string error;
@@ -85,7 +89,11 @@ namespace ABD_Fruteria.ViewModel
         public string Error
         {
             get { return error; }
-            set { error = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Error))); }
+            set
+            {
+                error = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Error"));
+            }
         }
 
         private Ventas venta;
@@ -93,7 +101,9 @@ namespace ABD_Fruteria.ViewModel
         public Ventas Venta
         {
             get { return venta; }
-            set { venta = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Venta))); }
+            set { venta = value; 
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Venta")); }
+
         }
 
         private Comisiones comisiones;
@@ -101,7 +111,7 @@ namespace ABD_Fruteria.ViewModel
         public Comisiones Comisiones
         {
             get { return comisiones; }
-            set { comisiones = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Comisiones))); }
+            set { comisiones = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Comisiones")); }
         }
 
 
@@ -116,7 +126,7 @@ namespace ABD_Fruteria.ViewModel
             Operacion = Operacion.comision;
         }
 
-        public void Regeresar()
+        public void Regresar()
         {
             Operacion = Operacion.ver;
         }
@@ -245,7 +255,7 @@ namespace ABD_Fruteria.ViewModel
             VerComisionCommand = new RelayCommand(VerComisiones);
             VerEditarCommand = new RelayCommand(VerEditar);
             EditarCommand = new RelayCommand(Editar);
-            RegersarCommand = new RelayCommand(Regeresar);
+            RegresarCommand = new RelayCommand(Regresar);
             VerEliminarCommand = new RelayCommand(VerEliminar);
             EliminarCommand = new RelayCommand(Eliminar);
             CancelarEliminarCommand = new RelayCommand(CancelarDelete);

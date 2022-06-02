@@ -4,9 +4,91 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
+        xmlns:vm="clr-namespace:ABD_Fruteria.ViewModel"
         mc:Ignorable="d"
-        Title="VerVentasView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="VerVentasView" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <DockPanel   >
+        <DockPanel.DataContext>
+            <vm:VentasViewModel/>
+        </DockPanel.DataContext>
+
+        <DockPanel DockPanel.Dock="Top" Background="LightGoldenrodYellow">
+
+            <WrapPanel DockPanel.Dock="Top" Background="LightGoldenrodYellow" HorizontalAlignment="Right">
+                <WrapPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Height" Value="25"></Setter>
+                        <Setter Property="FontSize" Value="13"></Setter>
+                        <Setter Property="Background" Value="LightGoldenrodYellow"></Setter>
+                        <Setter Property="Foreground" Value="#B37D09"></Setter>
+                        <Setter Property="FontFamily" Value="Arial Unicode MS"></Setter>
+                        <Setter Property="Margin" Value="5,5,0,5"></Setter>
+                        <Setter Property="Padding" Value="2"></Setter>
+                        <Setter Property="Width" Value="100"></Setter>
+                        <Setter Property="BorderThickness" Value="0"></Setter>
+
+
+
+                    </Style>
+                </WrapPanel.Resources>
+                <Button 
+                        Command="{Binding VerAgregarVentaCommand}">&#10133; Nueva venta</Button>
+                <Button  Content="&#128176; Comisiones" 
+                        Command="{Binding VerComisionCommand}"/>
+            </WrapPanel>
+
+        </DockPanel>
+
+        <ContentControl>
+
+            <ContentControl.Style>
+
+                <Style TargetType="ContentControl">
+
+                    <Style.Triggers>
+
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.ver}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:VentasView></local:VentasView>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.venta}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:AgregarVentaView></local:AgregarVentaView>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.editar}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:EditarVentaView></local:EditarVentaView>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.comision}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:ComisionesView/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+
+                    </Style.Triggers>
+
+                </Style>
+
+            </ContentControl.Style>
+
+        </ContentControl>
+
+    </DockPanel>
 </Window>

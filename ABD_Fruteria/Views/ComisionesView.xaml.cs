@@ -17,7 +17,7 @@ namespace ABD_Fruteria.Views
     /// <summary>
     /// Lógica de interacción para ComisionesView.xaml
     /// </summary>
-    public partial class ComisionesView : Window
+    public partial class ComisionesView : UserControl
     {
         public ComisionesView()
         {

@@ -17,7 +17,7 @@ namespace ABD_Fruteria.Views
     /// <summary>
     /// Lógica de interacción para VentasView.xaml
     /// </summary>
-    public partial class VentasView : Window
+    public partial class VentasView : UserControl
     {
         public VentasView()
         {

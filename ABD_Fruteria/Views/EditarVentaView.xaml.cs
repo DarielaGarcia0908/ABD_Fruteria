@@ -17,11 +17,16 @@ namespace ABD_Fruteria.Views
     /// <summary>
     /// Lógica de interacción para EditarVentaView.xaml
     /// </summary>
-    public partial class EditarVentaView : Window
+    public partial class EditarVentaView : UserControl
     {
         public EditarVentaView()
         {
             InitializeComponent();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

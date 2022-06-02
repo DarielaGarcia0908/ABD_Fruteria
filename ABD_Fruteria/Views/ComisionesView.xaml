@@ -1,12 +1,81 @@
-﻿<Window x:Class="ABD_Fruteria.Views.ComisionesView"
+﻿<UserControl x:Class="ABD_Fruteria.Views.ComisionesView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
         mc:Ignorable="d"
-        Title="ComisionesView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
-</Window>
+               d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel Background="LightGoldenrodYellow">
+        <Border  Margin="10,0,0,0"  Height="auto" Width="70" DockPanel.Dock="Top" HorizontalAlignment="Left">
+            <Button Content="&#11013; Regresar" BorderThickness="0" Height="auto" FontSize="12"
+               Width="100" Background="Transparent" FontFamily="Arial Unicode Ms"
+                    Foreground="#B37D09" Command="{Binding RegresarCommand}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" Margin="0,8,0,8">
+            </Button>
+        </Border>
+        <WrapPanel DockPanel.Dock="Bottom">
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Height" Value="25"></Setter>
+                    <Setter Property="FontSize" Value="12"></Setter>
+                    <Setter Property="Background" Value="#B37D09"></Setter>
+                    <Setter Property="Foreground" Value="LightGoldenrodYellow"></Setter>
+                    <Setter Property="FontFamily" Value="Arial Unicode Ms"></Setter>
+                    <Setter Property="Margin" Value="5,10,0,5"></Setter>
+                    <Setter Property="Padding" Value="2"></Setter>
+                    <Setter Property="Width" Value="70"></Setter>
+                    <Setter Property="BorderThickness" Value="0"></Setter>
+                    
+
+
+
+                </Style>
+            </WrapPanel.Resources>
+            <StackPanel>
+                <TextBlock VerticalAlignment="Center" FontFamily="Arial Unicode Ms" FontSize="12"
+                       Foreground="#B37D09" Margin="10,5,0,2" 
+                       > Filtrar por fecha</TextBlock>
+            <DatePicker Name="dtpFecha" VerticalAlignment="Center" Margin="10,0,10,10" FontSize="15"/>
+          </StackPanel> 
+              <Button Name="btnsleccionar" Content="&#128269; Buscar" Command="{Binding VerComisionFechaCommand}" CommandParameter="{Binding ElementName=dtpFecha, Path=SelectedDate}"/>
+        </WrapPanel>
+        <DataGrid Background="#FCF4A3" AutoGenerateColumns="False" ItemsSource="{Binding Comision}" SelectedItem="{Binding Comisiones}" BorderThickness="0" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style  TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#FACA0F"></Setter>
+                    <Setter Property="FontFamily" Value="Arial Rounded MT"></Setter>
+                    <Setter Property="Foreground" Value="#B37D09"></Setter>
+                    <Setter Property="FontSize" Value="13"></Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                    <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                    <Setter Property="Height" Value="auto"></Setter>
+                    <Setter Property="BorderBrush" Value="White"></Setter>
+                    <Setter Property="BorderThickness" Value=".5"></Setter>
+                    <Setter Property="Width" Value="265"></Setter>
+                    <Setter Property="Padding" Value="6"></Setter>
+                </Style>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Background" Value="LightGoldenrodYellow"></Setter>
+                    <Setter Property="FontFamily" Value="Arial Unicode MS"></Setter>
+                    <Setter Property="FontSize" Value="13"></Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                    <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                    <Setter Property="Height" Value="30"></Setter>
+                    <Setter Property="MinWidth" Value="70"></Setter>
+                    <Setter Property="Foreground" Value="#B37D09"></Setter>
+
+
+
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Codigo del Vendedor" Binding="{Binding IdvendedorNavigation.NombreVendedor}"/>
+                <DataGridTextColumn Header="Comision" Binding="{Binding Comision}"/>
+                <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha,StringFormat=d}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </DockPanel>
+</UserControl>

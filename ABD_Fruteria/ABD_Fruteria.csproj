@@ -7,6 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Assets\frutas.png" />
+    <None Remove="Views\Assets\fruteria.png" />
+    <None Remove="Views\Assets\green.png" />
+    <None Remove="Views\Assets\logofrutas.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Assets\fruteria.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Assets\green.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Assets\logofrutas.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Assets\frutas.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
 

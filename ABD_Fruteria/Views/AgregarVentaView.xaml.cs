@@ -17,11 +17,16 @@ namespace ABD_Fruteria.Views
     /// <summary>
     /// Lógica de interacción para AgregarVentaView.xaml
     /// </summary>
-    public partial class AgregarVentaView : Window
+    public partial class AgregarVentaView : UserControl
     {
         public AgregarVentaView()
         {
             InitializeComponent();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,12 +1,116 @@
-﻿<Window x:Class="ABD_Fruteria.Views.EditarVentaView"
+﻿<UserControl x:Class="ABD_Fruteria.Views.EditarVentaView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
         mc:Ignorable="d"
-        Title="EditarVentaView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
-</Window>
+     d:DesignHeight="450" d:DesignWidth="700">
+
+    <DockPanel >
+        <DockPanel.Background>
+            <ImageBrush ImageSource="/Views/Assets/frutas.png" />
+
+        </DockPanel.Background>
+        <StackPanel Width="600" Margin="0,45,0,45"  HorizontalAlignment="Center"
+                    >
+            <StackPanel.Background>
+                <SolidColorBrush Opacity=".93" Color="#FCF4A3"></SolidColorBrush>
+            </StackPanel.Background>
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Height" Value="30"></Setter>
+                    <Setter Property="FontSize" Value="13"></Setter>
+                    <Setter Property="Background" Value="#B37D09"></Setter>
+                    <Setter Property="FontFamily" Value="Arial Unicode MS"></Setter>
+                    <Setter Property="Margin" Value="5,0,10,0"></Setter>
+                    <Setter Property="Padding" Value="2"></Setter>
+                    <Setter Property="Foreground" Value="LightGoldenrodYellow"></Setter>
+                    <Setter Property="BorderBrush" Value="#45444a"></Setter>
+                    <Setter Property="BorderThickness" Value="1"></Setter>
+                    <Setter Property="Width" Value="100"></Setter>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                    <Setter Property="FontFamily" Value="Arial Unicode MS"></Setter>
+                    <Setter Property="FontSize" Value="15"></Setter>
+                    <Setter Property="Margin" Value="60,0,5,0"></Setter>
+                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+
+                </Style>
+                <Style TargetType="ComboBox">
+                    <Setter Property="Width" Value="200"></Setter>
+                    <Setter Property="FontFamily" Value="Arial Unicode MS"></Setter>
+
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                    <Setter Property="FontFamily" Value="Arial Unicode MS"></Setter>
+                    <Setter Property="FontSize" Value="15"></Setter>
+                    <Setter Property="Width" Value="700"></Setter>
+                    <Setter Property="Height" Value="25"></Setter>
+                    <Setter Property="Margin" Value="9,2,10,2"></Setter>
+                    <Setter Property="Padding" Value="3"></Setter>
+                    <Setter Property="BorderBrush" Value="#B37D09"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock HorizontalAlignment="Center" FontSize="17"
+                       Foreground="#B37D09" FontWeight="Bold"
+                       Margin="10">Editar venta</TextBlock>
+
+            <WrapPanel Margin="10,30,10,0">
+                <TextBlock Text="Producto " Foreground="#B37D09"/>
+                <ComboBox ItemsSource="{Binding Productos}" IsEnabled="False" Margin="0,0,50,0"
+                      DisplayMemberPath="NomProducto" 
+                      SelectedValuePath="IdProducto" 
+                      SelectedValue="{Binding Venta.CodProducto}" 
+                      SelectionChanged="ComboBox_SelectionChanged">
+
+                </ComboBox>
+
+
+            </WrapPanel>
+            <WrapPanel Margin="10,25,10,0">
+                <TextBlock Text="Vendedor" Foreground="#B37D09"/>
+                <ComboBox ItemsSource="{Binding Vendedores}" IsEnabled="False"
+                      DisplayMemberPath="NombreVendedor" SelectedValuePath="IdVendedor" SelectedValue="{Binding Venta.CodVendedor}"/>
+
+            </WrapPanel>
+
+            <WrapPanel Margin="10,25,10,0">
+                <TextBlock Text="Kilos     " Foreground="#B37D09"/>
+                <TextBox Width="100" Text="{Binding Venta.Kilos}"/>
+
+            </WrapPanel>
+
+            <WrapPanel Margin="10,25,10,0">
+                <TextBlock Text="Fecha    " Foreground="#B37D09"/>
+                <DatePicker IsEnabled="False"
+                Width="130"
+                SelectedDate="{Binding Venta.Fecha, StringFormat=d}" DisplayDate="01/06/2022" IsTodayHighlighted="True">
+
+                </DatePicker>
+            </WrapPanel>
+
+
+            <WrapPanel Margin="130,50,10,0">
+                <Button Content="Guardar"  Command="{Binding EditarCommand}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="9"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Cancelar"  Command="{Binding RegresarCommand}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="9"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </WrapPanel>
+            <Label Content="{Binding Error}" Height="30" Margin="30,0,30,0" FontSize="20" Foreground="Red"/>
+        </StackPanel>
+
+    </DockPanel>
+</UserControl>
