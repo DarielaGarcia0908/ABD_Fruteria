@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
         xmlns:vm="clr-namespace:ABD_Fruteria.ViewModel"
         mc:Ignorable="d"
-        Title="VerVentasView" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Fruteria ventas y comisiones" Height="700" Width="800" WindowStartupLocation="CenterScreen">
     <DockPanel   >
         <DockPanel.DataContext>
             <vm:VentasViewModel/>
@@ -31,8 +31,7 @@
 
                     </Style>
                 </WrapPanel.Resources>
-                <Button 
-                        Command="{Binding VerAgregarVentaCommand}">&#10133; Nueva venta</Button>
+                <Button   Command="{Binding VerAgregarVentaCommand}">&#10133; Nueva venta</Button>
                 <Button  Content="&#128176; Comisiones" 
                         Command="{Binding VerComisionCommand}"/>
             </WrapPanel>

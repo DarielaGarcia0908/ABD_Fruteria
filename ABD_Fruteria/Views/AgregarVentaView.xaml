@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
         mc:Ignorable="d"
-         d:DesignHeight="450" d:DesignWidth="700">
+         d:DesignHeight="500" d:DesignWidth="700">
 
     <DockPanel >
         <DockPanel.Background>
@@ -56,7 +56,7 @@
             </StackPanel.Resources>
             <TextBlock HorizontalAlignment="Center" FontSize="17"
                        Foreground="#B37D09" FontWeight="Bold"
-                       Margin="10">Agregar nueva venta</TextBlock>
+                       Margin="10,30,10,10">Agregar nueva venta</TextBlock>
 
             <WrapPanel Margin="10,30,10,0">
                 <TextBlock Text="Producto " Foreground="#B37D09"/>

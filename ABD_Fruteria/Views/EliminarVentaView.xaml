@@ -5,18 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
         mc:Ignorable="d"
-        Title="EliminarVentaView" Height="150" Width="800">
-    <DockPanel Background="Aqua">
+        Title="EliminarVentaView" Height="150" Width="500">
+    <DockPanel Background="LightGoldenrodYellow">
         <StackPanel>
 
-            <TextBlock FontSize="16">¿Seguro que quiere eliminar la venta del vendedor
+            <TextBlock TextWrapping="Wrap" Margin="10"
+                       Foreground="#B37D09" FontSize="16" FontFamily="Arial Unicode Ms">¿Seguro que quiere eliminar la venta del vendedor
                 <Run Text="{Binding Venta.CodVendedorNavigation.NombreVendedor}"/>
-                con el producto <Run Text="{Binding Venta.CodProductoNavigation.NomProducto}"/>?
+                con el producto <Run Text="{Binding Venta.CodProductoNavigation.NomProducto}"/>?    
             </TextBlock>
 
-            <WrapPanel Margin="10">
-                <Button Content="Si"  Background="#f460a5" Command="{Binding EliminarCommand}"/>
-                <Button Content="No" Background="#f460a5" Command="{Binding CancelarEliminarCommand}"/>
+            <WrapPanel Margin="10,10,10,10" HorizontalAlignment="Center">
+                <WrapPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Height" Value="25"></Setter>
+                        <Setter Property="FontSize" Value="12"></Setter>
+                        <Setter Property="Background" Value="#B37D09"></Setter>
+                        <Setter Property="Foreground" Value="LightGoldenrodYellow"></Setter>
+                        <Setter Property="FontFamily" Value="Arial Unicode Ms"></Setter>
+                        <Setter Property="Margin" Value="5,5,0,5"></Setter>
+                        <Setter Property="Padding" Value="2"></Setter>
+                        <Setter Property="Width" Value="70"></Setter>
+                        <Setter Property="BorderThickness" Value="0"></Setter>
+
+
+
+                    </Style>
+                </WrapPanel.Resources>
+                <Button Content="Si"   Command="{Binding EliminarCommand}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="9"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="No"  Command="{Binding CancelarEliminarCommand}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="9"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
 
             </WrapPanel>
             <Label Content="{Binding Error}"/>
