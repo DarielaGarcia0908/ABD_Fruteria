@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
         xmlns:vm="clr-namespace:ABD_Fruteria.ViewModel"
         mc:Ignorable="d"
-        Title="Fruteria ventas y comisiones" ResizeMode="NoResize" Height="700" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Fruteria ventas y comisiones" Height="700" Width="800" WindowStartupLocation="CenterScreen">
     <DockPanel   >
         <DockPanel.DataContext>
             <vm:VentasViewModel/>
