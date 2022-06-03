@@ -31,8 +31,10 @@
 
                     </Style>
                 </WrapPanel.Resources>
-                <Button Margin="10,0,450,0"  Command="{Binding VerVendedoresCommand}">Vendedores</Button>
-               <Button   Command="{Binding VerAgregarVentaCommand}">&#10133; Nueva venta</Button>
+                <Button Margin="0,0,10,0" Command="{Binding VerVendedoresCommand}">Vendedores</Button>
+                <Button Margin="0,0,300,0" Command="{Binding VerProductosCommand}">Productos</Button>
+
+                <Button   Command="{Binding VerAgregarVentaCommand}">&#10133; Nueva venta</Button>
                
                 <Button  Content="&#128176; Comisiones" 
                         Command="{Binding VerComisionCommand}"/>

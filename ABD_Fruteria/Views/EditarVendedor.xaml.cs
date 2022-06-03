@@ -23,5 +23,15 @@ namespace ABD_Fruteria.Views
         {
             InitializeComponent();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

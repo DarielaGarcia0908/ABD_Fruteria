@@ -21,6 +21,16 @@ namespace ABD_Fruteria.Repositories
         {
             return context.Productos.OrderBy(x => x.NomProducto);
         }
+        public IEnumerable<Poblacion> GetPoblacion()
+        {
+            return context.Poblacion.OrderBy(x => x.Nombre);
+        }
+        public IEnumerable<Estadocivil> GetEstados()
+        {
+            return context.Estadocivil.OrderBy(x => x.Estado);
+        }
+
+
 
         public IEnumerable<Comisiones> GetComisiones()
         {

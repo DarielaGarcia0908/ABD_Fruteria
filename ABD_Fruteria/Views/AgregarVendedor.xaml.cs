@@ -28,5 +28,10 @@ namespace ABD_Fruteria.Views
         {
 
         }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

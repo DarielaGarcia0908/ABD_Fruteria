@@ -129,6 +129,8 @@ namespace ABD_Fruteria.ViewModel
             }
         }
 
+
+
         private Ventas venta;
 
         public Ventas Venta
@@ -393,6 +395,8 @@ namespace ABD_Fruteria.ViewModel
             Comision = new ObservableCollection<Comisiones>(comision);
 
             Vendedores = new ObservableCollection<Vendedores>(reposVendedores.GetNombre());
+            Poblacion = new ObservableCollection<Poblacion>(reposVendedores.GetPoblacion());
+            EstadoCivil = new ObservableCollection<Estadocivil>(reposVendedores.GetEstados());
             Productos = new ObservableCollection<Productos>(reposVendedores.GetProducto());
 
             VerComisionFechaCommand = new RelayCommand<DateTime>(VerComisionFecha);
