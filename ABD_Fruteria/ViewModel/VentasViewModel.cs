@@ -39,6 +39,8 @@ namespace ABD_Fruteria.ViewModel
         public ICommand EditarProductoCommand { get; set; }
 
         public ICommand VerComisionCommand { get; set; }
+        public ICommand VerVendedoresCommand { get; set; }
+
         public ICommand RegresarCommand { get; set; }
         public ICommand VerEliminarCommand { get; set; }
         public ICommand EliminarCommand { get; set; }
@@ -175,7 +177,7 @@ namespace ABD_Fruteria.ViewModel
         }
         public void VerAgregarVendedor()
         {
-            Operacion = Operacion.verv;
+            Operacion = Operacion.insertv;
             Vendedor = new Vendedores();
         }
 
@@ -184,6 +186,11 @@ namespace ABD_Fruteria.ViewModel
         public void VerComisiones()
         {
             Operacion = Operacion.comision;
+        }
+
+        public void VerVendedores()
+        {
+            Operacion = Operacion.verv;
         }
 
         public void Regresar()
@@ -394,6 +401,7 @@ namespace ABD_Fruteria.ViewModel
             VenderCommand = new RelayCommand(Agregar);
             AgregarVendedorCommand = new RelayCommand(AgregarVendedor);
             VerComisionCommand = new RelayCommand(VerComisiones);
+            VerVendedoresCommand = new RelayCommand(VerVendedores);
             VerEditarCommand = new RelayCommand(VerEditar);
             VerEditarVendedorCommand = new RelayCommand(VerEditarVendedor);
             EditarCommand = new RelayCommand(Editar);
