@@ -38,6 +38,7 @@
             <Button  Content="&#9998; Editar" Background="#4F4E28"
                      Foreground="LightGoldenrodYellow"
                      Command="{Binding VerEditarProductoCommand}"/>
+            <Label Content="{Binding Error}" Width="400" FontSize="15" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="Red"/>
 
         </WrapPanel>
 
@@ -59,7 +60,7 @@
                     <Setter Property="Height" Value="auto"></Setter>
                     <Setter Property="BorderBrush" Value="White"></Setter>
                     <Setter Property="BorderThickness" Value=".5"></Setter>
-                    <Setter Property="Width" Value="200"></Setter>
+                    <Setter Property="Width" Value="268"></Setter>
                     <Setter Property="Padding" Value="6"></Setter>
                 </Style>
                 <Style TargetType="DataGridCell">

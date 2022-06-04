@@ -347,7 +347,7 @@ namespace ABD_Fruteria.ViewModel
             }
             else
             {
-                Error = "Seleccione el vendedor para editar";
+                Error = "Seleccione el producto para editar";
             }
         }
 

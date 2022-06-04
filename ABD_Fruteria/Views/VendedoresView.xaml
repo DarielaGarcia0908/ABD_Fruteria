@@ -38,6 +38,7 @@
             <Button  Content="&#9998; Editar" Background="#4F4E28"
                      Foreground="LightGoldenrodYellow"
                      Command="{Binding VerEditarVendedorCommand}"/>
+            <Label Content="{Binding Error}" Width="400" FontSize="15" Margin="30,0,0,0" VerticalAlignment="Center" Foreground="Red"/>
 
         </WrapPanel>
 
