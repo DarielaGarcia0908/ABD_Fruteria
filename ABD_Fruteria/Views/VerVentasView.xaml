@@ -12,15 +12,15 @@
             <vm:VentasViewModel/>
         </DockPanel.DataContext>
 
-        <DockPanel DockPanel.Dock="Top" Background="LightGoldenrodYellow">
+        <DockPanel DockPanel.Dock="Top" Background="DarkOliveGreen">
 
-            <WrapPanel DockPanel.Dock="Top" Background="LightGoldenrodYellow" HorizontalAlignment="Right">
+            <WrapPanel DockPanel.Dock="Top" Background="DarkOliveGreen" HorizontalAlignment="Right">
                 <WrapPanel.Resources>
                     <Style TargetType="Button">
                         <Setter Property="Height" Value="25"></Setter>
                         <Setter Property="FontSize" Value="13"></Setter>
-                        <Setter Property="Background" Value="LightGoldenrodYellow"></Setter>
-                        <Setter Property="Foreground" Value="#B37D09"></Setter>
+                        <Setter Property="Background" Value="Transparent"></Setter>
+                        <Setter Property="Foreground" Value="LightGoldenrodYellow"></Setter>
                         <Setter Property="FontFamily" Value="Arial Unicode MS"></Setter>
                         <Setter Property="Margin" Value="5,5,0,5"></Setter>
                         <Setter Property="Padding" Value="2"></Setter>
@@ -31,7 +31,11 @@
 
                     </Style>
                 </WrapPanel.Resources>
+                <Button Margin="0,0,10,0" Command="{Binding VerVendedoresCommand}">Vendedores</Button>
+                <Button Margin="0,0,300,0" Command="{Binding VerProductosCommand}">Productos</Button>
+
                 <Button   Command="{Binding VerAgregarVentaCommand}">&#10133; Nueva venta</Button>
+               
                 <Button  Content="&#128176; Comisiones" 
                         Command="{Binding VerComisionCommand}"/>
             </WrapPanel>
@@ -54,6 +58,14 @@
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.verv}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:VendedoresView></local:VendedoresView>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
 
                         <DataTrigger Binding="{Binding Operacion}"
                                      Value="{x:Static local:Operacion.venta}">
@@ -68,6 +80,22 @@
                             <Setter Property="Content">
                                 <Setter.Value>
                                     <local:EditarVentaView></local:EditarVentaView>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.insertv}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:AgregarVendedor></local:AgregarVendedor>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.updatev}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:EditarVendedor></local:EditarVendedor>
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
