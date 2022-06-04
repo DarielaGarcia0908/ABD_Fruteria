@@ -40,6 +40,7 @@ namespace ABD_Fruteria.ViewModel
 
         public ICommand VerComisionCommand { get; set; }
         public ICommand VerVendedoresCommand { get; set; }
+        public ICommand VerProductosCommand { get; set; }
 
         public ICommand RegresarCommand { get; set; }
         public ICommand VerEliminarCommand { get; set; }
@@ -182,6 +183,12 @@ namespace ABD_Fruteria.ViewModel
             Operacion = Operacion.insertv;
             Vendedor = new Vendedores();
         }
+        public void VerAgregarProducto()
+        {
+            Operacion = Operacion.insertp;
+            Producto = new Productos();
+        }
+
 
 
 
@@ -190,10 +197,15 @@ namespace ABD_Fruteria.ViewModel
             Operacion = Operacion.comision;
         }
 
+        public void VerProductos()
+        {
+            Operacion = Operacion.verp;
+        }
         public void VerVendedores()
         {
             Operacion = Operacion.verv;
         }
+
 
         public void Regresar()
         {
@@ -204,6 +216,7 @@ namespace ABD_Fruteria.ViewModel
         //Repositorios
         VentaRepository reposVenta = new VentaRepository();
         VendedoresRepository reposVendedores = new VendedoresRepository();
+        ProductosRepository reposProductos = new ProductosRepository();
 
 
         //Agregar
@@ -237,6 +250,25 @@ namespace ABD_Fruteria.ViewModel
                    
                 }
                 Operacion = Operacion.verv;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+            }
+        }
+
+        public void AgregarProducto()
+        {
+            Error = "";
+            try
+            {
+                if (reposProductos.Validate(Producto))
+                {
+                    reposProductos.Insert(Producto);
+                    Productos = new ObservableCollection<Productos>(reposProductos.GetAll());
+
+                }
+                Operacion = Operacion.verp;
             }
             catch (Exception ex)
             {
@@ -296,12 +328,32 @@ namespace ABD_Fruteria.ViewModel
             {
                 Error = "Seleccione el vendedor para editar";
             }
+
+        }
+        public void VerEditarProducto()
+        {
+            Error = "";
+
+            if (Producto != null)
+            {
+                Operacion = Operacion.upadtep;
+                var copia = new Productos()
+                {
+                    NomProducto = Producto.NomProducto,
+                    IdGrupo = Producto.IdGrupo,
+                    Precio = Producto.Precio,
+                };
+                Producto = copia;
+            }
+            else
+            {
+                Error = "Seleccione el vendedor para editar";
+            }
         }
 
+            //Editar
 
-        //Editar
-
-        public void Editar()
+            public void Editar()
         {
             Error = "";
 
@@ -333,6 +385,25 @@ namespace ABD_Fruteria.ViewModel
                     Vendedores = new ObservableCollection<Vendedores>(reposVendedores.GetAll());
                 }
                 Operacion = Operacion.verv;
+            }
+            catch (Exception ex)
+            {
+
+                Error = ex.Message;
+            }
+        }
+        public void EditarProducto()
+        {
+            Error = "";
+
+            try
+            {
+                if (reposProductos.Validate(Producto))
+                {
+                    reposProductos.Update(Producto);
+                    Productos = new ObservableCollection<Productos>(reposProductos.GetAll());
+                }
+                Operacion = Operacion.verp;
             }
             catch (Exception ex)
             {
@@ -391,6 +462,10 @@ namespace ABD_Fruteria.ViewModel
             var datosv = reposVendedores.GetAll();
             Vendedores = new ObservableCollection<Vendedores>(datosv);
 
+
+            var datosp = reposProductos.GetAll();
+            Productos = new ObservableCollection<Productos>(datosp);
+
             var comision = reposVendedores.GetComisiones();
             Comision = new ObservableCollection<Comisiones>(comision);
 
@@ -398,18 +473,23 @@ namespace ABD_Fruteria.ViewModel
             Poblacion = new ObservableCollection<Poblacion>(reposVendedores.GetPoblacion());
             EstadoCivil = new ObservableCollection<Estadocivil>(reposVendedores.GetEstados());
             Productos = new ObservableCollection<Productos>(reposVendedores.GetProducto());
+            Grupos = new ObservableCollection<Grupos>(reposProductos.GetGrupo());
 
             VerComisionFechaCommand = new RelayCommand<DateTime>(VerComisionFecha);
             VerAgregarVentaCommand = new RelayCommand(VerAgregarVenta);
             VerAgregarVendedorCommand = new RelayCommand(VerAgregarVendedor);
+            VerAgregarProductoCommand = new RelayCommand(VerAgregarProducto);
             VenderCommand = new RelayCommand(Agregar);
             AgregarVendedorCommand = new RelayCommand(AgregarVendedor);
+            AgregarProductoCommand = new RelayCommand(AgregarProducto);
             VerComisionCommand = new RelayCommand(VerComisiones);
             VerVendedoresCommand = new RelayCommand(VerVendedores);
             VerEditarCommand = new RelayCommand(VerEditar);
             VerEditarVendedorCommand = new RelayCommand(VerEditarVendedor);
+            VerEditarProductoCommand = new RelayCommand(VerEditarProducto);
             EditarCommand = new RelayCommand(Editar);
             EditarVendedorCommand = new RelayCommand(EditarVendedor);
+            EditarProductoCommand = new RelayCommand(EditarProducto);
             RegresarCommand = new RelayCommand(Regresar);
             VerEliminarCommand = new RelayCommand(VerEliminar);
             EliminarCommand = new RelayCommand(Eliminar);

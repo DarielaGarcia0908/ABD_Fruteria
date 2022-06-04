@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="ABD_Fruteria.Views.AgregarVendedor"
+﻿<UserControl x:Class="ABD_Fruteria.Views.AgregarProductoView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
         mc:Ignorable="d"
-      d:DesignHeight="560" d:DesignWidth="802">
+        d:DesignHeight="560" d:DesignWidth="802">
 
     <DockPanel>
         <DockPanel.Background>
@@ -56,71 +56,31 @@
             </StackPanel.Resources>
             <TextBlock HorizontalAlignment="Center" FontSize="17"
                        Foreground="#B37D09" FontWeight="Bold"
-                       Margin="10,10,10,10">Agregar nuevo vendedor</TextBlock>
+                       Margin="10,10,10,10">Agregar nuevo producto</TextBlock>
             <WrapPanel Margin="10,15,10,0">
                 <TextBlock Text="Nombre         " Foreground="#B37D09"/>
-                <TextBox Width="400" Text="{Binding Vendedor.NombreVendedor}"/>
+                <TextBox Width="400" Text="{Binding Producto.NomProducto}"/>
 
             </WrapPanel>
             <WrapPanel Margin="10,10,10,0">
-                <TextBlock Text="Poblacion      " Foreground="#B37D09"/>
-                <ComboBox ItemsSource="{Binding Poblacion}" Margin="0,0,50,0"
-                      DisplayMemberPath="Nombre" 
-                      SelectedValuePath="IdPoblacion" 
-                      SelectedValue="{Binding Vendedor.Poblacion}"
+                <TextBlock Text="Grupo            " Foreground="#B37D09"/>
+                <ComboBox ItemsSource="{Binding Grupos}" Margin="0,0,50,0"
+                      DisplayMemberPath="NomProducto" 
+                      SelectedValuePath="IdGrupo" 
+                      SelectedValue="{Binding Producto.IdGrupo}"
                       SelectionChanged="ComboBox_SelectionChanged">
 
                 </ComboBox>
 
             </WrapPanel>
-            <WrapPanel Margin="10,15,10,0">
-                <TextBlock Text="Estado civil    " Foreground="#B37D09"/>
-                <ComboBox ItemsSource="{Binding EstadoCivil}" 
-                      DisplayMemberPath="Estado" SelectedValuePath="IdEstadoCivil" 
-                          SelectedValue="{Binding Vendedor.EstalCivil}"
-                          SelectionChanged="ComboBox_SelectionChanged_1"/>
-
-            </WrapPanel>
 
 
             <WrapPanel Margin="10,15,10,0">
-                <TextBlock Text="NIF                " Foreground="#B37D09"/>
-                <TextBox Width="400" Text="{Binding Vendedor.Nif}"/>
+                <TextBlock Text="Precio            "  Foreground="#B37D09"/>
+                <TextBox Width="400" Text="{Binding Producto.Precio}"/>
 
             </WrapPanel>
-            <WrapPanel Margin="10,15,0,0">
-                <TextBlock Text="Dirección       " Foreground="#B37D09"/>
-                <TextBox Width="400" Text="{Binding Vendedor.Direccion}"/>
-
-            </WrapPanel>
-            <WrapPanel Margin="10,15,10,0">
-                <TextBlock Text="CP                 " Foreground="#B37D09"/>
-                <TextBox Width="400" Text="{Binding Vendedor.CodPostal}"/>
-
-            </WrapPanel>
-            <WrapPanel Margin="10,15,10,0">
-                <TextBlock Text="Telefóno        " Foreground="#B37D09"/>
-                <TextBox Width="400" Text="{Binding Vendedor.Telefon}"/>
-
-            </WrapPanel>
-
-
-            <WrapPanel Margin="10,15,10,0">
-                <TextBlock Text="Fecha de alta              " Foreground="#B37D09"/>
-                <DatePicker 
-                Width="130"
-                SelectedDate="{Binding Vendedor.FechaAlta, StringFormat=d}" IsTodayHighlighted="True">
-
-                </DatePicker>
-            </WrapPanel>
-            <WrapPanel Margin="10,15,10,0">
-                <TextBlock Text="Fecha de nacimiento  " Foreground="#B37D09"/>
-                <DatePicker 
-                Width="130"
-                SelectedDate="{Binding Vendedor.FechaNac, StringFormat=d}" IsTodayHighlighted="True">
-
-                </DatePicker>
-            </WrapPanel>
+           
 
             <WrapPanel Margin="25" HorizontalAlignment="Center">
                 <Button Content="Agregar"  Command="{Binding AgregarVendedorCommand}">

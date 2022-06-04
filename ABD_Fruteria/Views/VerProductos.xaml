@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="ABD_Fruteria.Views.VendedoresView"
+﻿<UserControl x:Class="ABD_Fruteria.Views.VerProductos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Fruteria.Views"
         mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="802" 
+       d:DesignHeight="450" d:DesignWidth="802" 
        >
     <DockPanel Background="LightGoldenrodYellow" >
         <WrapPanel DockPanel.Dock="Bottom">
@@ -26,15 +26,15 @@
                 </Style>
             </WrapPanel.Resources>
             <Button  Content="&#10133; Agregar" 
-                     Command="{Binding VerAgregarVendedorCommand}"/>
+                     Command="{Binding  VerAgregarProductoCommand}"/>
             <Button  Content="&#9998; Editar" Background="#4F4E28"
                      Foreground="LightGoldenrodYellow"
-                     Command="{Binding VerEditarVendedorCommand}"/>
+                     Command="{Binding VerEditarProductoCommand}"/>
 
         </WrapPanel>
 
         <DataGrid BorderBrush="#B37D09"
-                 ItemsSource="{Binding Vendedores}" SelectedItem="{Binding Vendedor}"
+                 ItemsSource="{Binding Productos}" SelectedItem="{Binding Producto}"
                   BorderThickness=".5" IsReadOnly="True" AutoGenerateColumns="False" 
                 >
             <DataGrid.Background>
@@ -70,17 +70,12 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nombre vendedor" Binding="{Binding NombreVendedor}"/>
-                <DataGridTextColumn Header="Fecha de alta" Binding="{Binding FechaAlta, StringFormat=d}"/>
-                <DataGridTextColumn Header="Nif" Binding="{Binding Nif}"/>
-                <DataGridTextColumn Header="Fecha Nacimiento" Binding="{Binding FechaNac, StringFormat=d}"/>
-                <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}"/>
-                <DataGridTextColumn Header="Poblacion" Binding="{Binding Poblacion}"/>
-                <DataGridTextColumn Header="Estado Civil" Binding="{Binding EstalCivil}"/>
-
-
-
+                <DataGridTextColumn Header="Nombre del producto" Binding="{Binding NomProducto}"/>
+                 <DataGridTextColumn Header="Grupo" Binding="{Binding IdGrupo}"/>
+                <DataGridTextColumn Header="Precio" Binding="{Binding Precio}"/>
+               
             </DataGrid.Columns>
-              </DataGrid>
+           
+        </DataGrid>
     </DockPanel>
 </UserControl>
