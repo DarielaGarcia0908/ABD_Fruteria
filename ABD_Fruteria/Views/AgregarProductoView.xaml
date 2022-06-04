@@ -98,7 +98,7 @@
                     </Button.Resources>
                 </Button>
             </WrapPanel>
-            <Label Content="{Binding Error}" FontSize="20" Height="25" Foreground="Red"/>
+            <Label Content="{Binding Error}" FontSize="14" Height="30" Foreground="Red"/>
         </StackPanel>
 
     </DockPanel>
