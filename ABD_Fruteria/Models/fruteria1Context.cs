@@ -208,7 +208,7 @@ namespace ABD_Fruteria.Models
                 entity.ToTable("ventas");
 
                 entity.HasIndex(e => e.CodProducto)
-                    .HasName("ProductosVentas");
+                    .HasName("fkVentasProducto_idx");
 
                 entity.HasIndex(e => e.CodVendedor)
                     .HasName("VendedoresVentas");

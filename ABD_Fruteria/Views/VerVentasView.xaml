@@ -66,6 +66,30 @@
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.verp}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:VerProductos></local:VerProductos>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.insertp}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:AgregarProductoView></local:AgregarProductoView>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Operacion}"
+                                     Value="{x:Static local:Operacion.upadtep}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <local:EditarProductoView></local:EditarProductoView>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
 
                         <DataTrigger Binding="{Binding Operacion}"
                                      Value="{x:Static local:Operacion.venta}">

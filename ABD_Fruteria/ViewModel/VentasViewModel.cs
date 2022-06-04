@@ -484,6 +484,7 @@ namespace ABD_Fruteria.ViewModel
             AgregarProductoCommand = new RelayCommand(AgregarProducto);
             VerComisionCommand = new RelayCommand(VerComisiones);
             VerVendedoresCommand = new RelayCommand(VerVendedores);
+            VerProductosCommand = new RelayCommand(VerProductos);
             VerEditarCommand = new RelayCommand(VerEditar);
             VerEditarVendedorCommand = new RelayCommand(VerEditarVendedor);
             VerEditarProductoCommand = new RelayCommand(VerEditarProducto);
