@@ -8,6 +8,14 @@
        d:DesignHeight="450" d:DesignWidth="802" 
        >
     <DockPanel Background="LightGoldenrodYellow" >
+        <Border  Margin="10,0,0,0"  Height="auto" Width="70" DockPanel.Dock="Top" HorizontalAlignment="Left">
+            <Button Content="&#11013; Regresar" BorderThickness="0" Height="auto" FontSize="12"
+               Width="100" Background="Transparent" FontFamily="Arial Unicode Ms"
+                    Foreground="#B37D09" Command="{Binding RegresarCommand}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" Margin="0,8,0,8">
+            </Button>
+        </Border>
         <WrapPanel DockPanel.Dock="Bottom">
             <WrapPanel.Resources>
                 <Style TargetType="Button">
